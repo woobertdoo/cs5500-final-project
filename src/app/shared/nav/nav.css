@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  gap: 2rem;
+  color: #213547;
+  background-color: #88c0f9;
+  font-size: 16px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
