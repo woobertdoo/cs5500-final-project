@@ -1,0 +1,134 @@
+.hero {
+  background: #d9e9ff;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px 80px;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1250px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 6rem;
+  line-height: 1.05;
+  font-weight: 800;
+  color: #1f3f8f;
+  margin: 20px 0 24px;
+}
+
+.hero-subtext {
+  max-width: 1450px;
+  margin: 0 auto 48px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2f2f2f;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 360px;
+  padding: 20px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(62, 104, 221, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(62, 104, 221, 0.24);
+}
+
+.hero-btn.primary,
+.hero-btn.secondary {
+  background: linear-gradient(90deg, #4c79f0, #5378e9);
+  color: white;
+}
+
+.hero-rating {
+  margin-bottom: 60px;
+}
+
+.stars {
+  color: #d7a23e;
+  font-size: 2rem;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+}
+
+.hero-rating p {
+  color: #4a63e7;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 80px;
+  max-width: 1350px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.feature-column {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.feature-item {
+  font-size: 1.15rem;
+  color: #111827;
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .hero h1 {
+    font-size: 4.5rem;
+  }
+
+  .hero-features {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 40px 16px 60px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+  }
+
+  .hero-btn {
+    min-width: 100%;
+  }
+
+  .feature-item {
+    font-size: 1rem;
+  }
+}
