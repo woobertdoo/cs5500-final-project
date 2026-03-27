@@ -1,7 +1,7 @@
 <div class="dropdown">
   @for (route of routeDict().keys(); track $index) {
     <div>
-      <a [href]="route">{{ routeDict().get(route) }}</a>
+      <a [routerLink]="route">{{ routeDict().get(route) }}</a>
     </div>
   }
 </div>

@@ -9,4 +9,4 @@ import { Nav } from './shared/nav/nav';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {}
+export class App { }
