@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { Hero } from './home/hero/hero';
-import { Form } from './contact/form/form';
+import { ContactPage } from './contact/contact-page/contact-page';
 
 export const routes: Routes = [
   { path: '', component: Hero },
-  { path: 'contact', component: Form }
+  { path: 'contact', component: ContactPage }
 ];
