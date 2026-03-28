@@ -59,3 +59,55 @@ p {
   box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
   text-decoration: none;
 }
+
+@media print {
+  /* Hide navigation and footer for printing */
+  app-nav, app-nav-student, app-nav-dropdown, app-footer {
+    display: none !important;
+  }
+
+  /* Ensure text is black on white background */
+  body {
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Remove backgrounds, shadows, and other visual elements */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Adjust font sizes for print */
+  body {
+    font-size: 12pt;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  p, div, span {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Ensure links are visible */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  /* Hide interactive elements if needed */
+  button, input, select, textarea {
+    display: none !important;
+  }
+
+  /* Adjust sections for print */
+  section {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
