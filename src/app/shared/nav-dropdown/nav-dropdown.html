@@ -1,7 +1,15 @@
-<div class="dropdown">
-  @for (route of routeDict().keys(); track $index) {
-    <div>
-      <a [routerLink]="route">{{ routeDict().get(route) }}</a>
-    </div>
-  }
+<div class="absolute top-full pt-2 z-50 translate-y-1 transition-all duration-200 left-0">
+  <ul
+    class="nav-list min-w-55 overflow-visible rounded-xl border border-blue-300 bg-blue-100 shadow-lg p-2 text-left"
+  >
+    @for (route of routeDict().keys(); track $index) {
+      <li>
+        <a
+          class="nounderline h-10 px-3 inline-flex items-center rounded-md text-slate-700 font-medium hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+          [routerLink]="route"
+          >{{ routeDict().get(route) }}</a
+        >
+      </li>
+    }
+  </ul>
 </div>
