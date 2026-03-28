@@ -44,3 +44,18 @@ p {
   margin-bottom: 1rem;
   line-height: 1.75;
 }
+
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #027dff;
+  color: #fff;
+  font-weight: 500;
+  transition: all .3s ease-in-out;
+  margin-top: .75rem;
+  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
+  text-decoration: none;
+}

@@ -1,8 +1,10 @@
 import { Component, signal, OnInit } from '@angular/core';
+import { ContactForm } from '../form/contact-form';
 
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.html',
+  imports: [ContactForm],
   styleUrl: './contact-page.css',
 })
 export class ContactPage {

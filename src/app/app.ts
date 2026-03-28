@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Nav } from './shared/nav/nav';
+import { Footer } from './shared/footer/footer';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Nav],
+  imports: [RouterOutlet, Nav, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   ngOnInit() {
     requestAnimationFrame(() => this.initAnimations);
+  }
+
+  scrollUp() {
+    console.log("scrolling");
+    window.scroll({ top: 0, left: 0, behavior: "smooth" })
   }
   initAnimations() {
     const elements = Array.from(
