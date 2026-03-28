@@ -1,31 +1,57 @@
-<nav class="h-20 flex items-center top-0 z-50">
-  <div class="mx-auto flex justify-between items-center py-1 px-4 max-md:px-2 w-full max-w-7xlv>">
-    <div class="nav-item">
-      <a href="/">Home</a>
+<div class="w-screen">
+  <nav class="h-20 flex items-center top-0 z-50">
+    <div class="mx-auto flex justify-between items-center py-1 px-4 max-md:px-2 w-full max-w-7xl">
+      <!-- LOGO -->
+      <div class="flex flex-col items-start justify-start shrink-0">
+        <a class="nounderline flex items-center rounded-md" [routerLink]="">
+          <img class="h-10 w-auto object-containt" src="/public/mainLogo.BmWbPggq_1Jmxbr.webp" alt="Logo" width="1140"
+            height="358" />
+        </a>
+      </div>
+      <!-- DESKTOP NAV -->
+      <div class="max-lg:hidden justify-center h-full">
+        <ul class="nav-list ml-3 h-full flex items-center gap-1">
+          <div class="nav-item">
+            <a [routerLink]="">Home</a>
+          </div>
+          <div class="nav-item relative h-full flex items-center group">
+            <span class="whitespace-nowrap">Student Tools</span>
+            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+            </svg>
+            <app-nav-dropdown [routes]="['students']" [linkTexts]="['Student Guides']">
+            </app-nav-dropdown>
+          </div>
+          <div class="nav-item relative h-full flex items-center group">
+            <span class="whitespace-nowrap">Teacher Tools</span>
+            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+            </svg>
+            <app-nav-dropdown [routes]="['teachers']" [linkTexts]="['Teacher Guides']">
+            </app-nav-dropdown>
+          </div>
+          <div class="nav-item relative h-full flex items-center group">
+            <span class="whitespace-nowrap">Institutions</span>
+            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+            </svg>
+            <app-nav-dropdown [routes]="['institutions']" [linkTexts]="['Institution Docs']">
+            </app-nav-dropdown>
+          </div>
+          <div class="nav-item relative h-full flex items-center group">
+            <span class="whitespace-nowrap">About</span>
+            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+            </svg>
+            <app-nav-dropdown [routes]="['contact']" [linkTexts]="['Contact' ]">
+            </app-nav-dropdown>
+          </div>
+        </ul>
+      </div>
     </div>
-    <div class="nav-item">
-      Student Tools
-      <app-nav-dropdown [routes]="['about', 'contact', '/students']" [linkTexts]="['About', 'Contact', 'StudentGuides' ]">
-      </app-nav-dropdown>
-    </div>
-    <div class="nav-item relative h-full flex items-center group">
-      <span class="whitespace-nowrap">Teacher Tools</span>
-      <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
-        viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
-      </svg>
-      <app-nav-dropdown [routes]="['about', 'contact', '/teachers']" [linkTexts]="['About', 'Contact', 'TeacherGuides' ]">
-      </app-nav-dropdown>
-    </div>
-    <div class="nav-item">
-      Institutions
-      <app-nav-dropdown [routes]="['about', 'contact', '/institutions']" [linkTexts]="['About', 'Contact', 'Institutional Docs' ]">
-      </app-nav-dropdown>
-    </div>
-    <div class="nav-item">
-      About
-      <app-nav-dropdown [routes]="['about', 'contact']" [linkTexts]="['About Us', 'Contact' ]">
-      </app-nav-dropdown>
-    </div>
-  </div>
-</nav>
+  </nav>
+</div>

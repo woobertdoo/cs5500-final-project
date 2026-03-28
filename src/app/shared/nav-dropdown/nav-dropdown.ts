@@ -1,9 +1,9 @@
 import { Component, signal, input, computed } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-dropdown',
-  imports: [RouterModule],
+  imports: [RouterLink],
   templateUrl: './nav-dropdown.html',
   styleUrl: './nav-dropdown.css',
 })
