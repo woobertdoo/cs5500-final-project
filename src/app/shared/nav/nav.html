@@ -11,42 +11,55 @@
       <!-- DESKTOP NAV -->
       <div class="max-lg:hidden justify-center h-full">
         <ul class="nav-list ml-3 h-full flex items-center gap-1">
-          <div class="nav-item">
-            <a [routerLink]="">Home</a>
+          <div class="nav-item flex items-center">
+            <a class="nounderline h-10 px-3 inline-flex items-center rounded-md text-slate-700 font-medium hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+              [routerLink]="">Home</a>
           </div>
-          <div class="nav-item relative h-full flex items-center group">
-            <span class="whitespace-nowrap">Student Tools</span>
-            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
-            </svg>
+          <div class="nav-item relative h-auto flex items-center group">
+            <button
+              class="nounderline h-10 px-3 inline-flex items-center rounded-md text-slate-700 font-medium hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2">
+              <span class="whitespace-nowrap">Student Tools</span>
+              <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+              </svg>
+            </button>
             <app-nav-dropdown [routes]="['students']" [linkTexts]="['Student Guides']">
             </app-nav-dropdown>
           </div>
           <div class="nav-item relative h-full flex items-center group">
-            <span class="whitespace-nowrap">Teacher Tools</span>
-            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
-            </svg>
+            <button
+              class="nounderline h-10 px-3 inline-flex items-center rounded-md text-slate-700 font-medium hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2">
+              <span class="whitespace-nowrap">Teacher Tools</span>
+              <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+              </svg>
+            </button>
             <app-nav-dropdown [routes]="['teachers']" [linkTexts]="['Teacher Guides']">
             </app-nav-dropdown>
           </div>
           <div class="nav-item relative h-full flex items-center group">
-            <span class="whitespace-nowrap">Institutions</span>
-            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
-            </svg>
+            <button
+              class="nounderline h-10 px-3 inline-flex items-center rounded-md text-slate-700 font-medium hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2">
+              <span class="whitespace-nowrap">Institutions</span>
+              <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+              </svg>
+            </button>
             <app-nav-dropdown [routes]="['institutions']" [linkTexts]="['Institution Docs']">
             </app-nav-dropdown>
           </div>
           <div class="nav-item relative h-full flex items-center group">
-            <span class="whitespace-nowrap">About</span>
-            <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
-            </svg>
+            <button
+              class="nounderline h-10 px-3 inline-flex items-center rounded-md text-slate-700 font-medium hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2">
+              <span class="whitespace-nowrap">About</span>
+              <svg class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9 L12 15 L18 9"></path>
+              </svg>
+            </button>
             <app-nav-dropdown [routes]="['contact']" [linkTexts]="['Contact' ]">
             </app-nav-dropdown>
           </div>

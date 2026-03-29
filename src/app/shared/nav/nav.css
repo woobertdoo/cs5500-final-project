@@ -8,8 +8,6 @@ nav {
 
 .nav-item {
   position: relative;
-}
-
-.nav-item:hover .dropdown {
-  display: block;
+  padding-bottom: 0.75rem;
+  padding-top: 0px;
 }

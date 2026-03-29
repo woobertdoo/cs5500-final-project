@@ -1,0 +1,11 @@
+.bg-websiteFooter {
+  background-color: #88c0f9;
+}
+
+.footer-section {
+  padding-top: 0;
+  padding-inline: 16px;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-bottom: 0;
+}
