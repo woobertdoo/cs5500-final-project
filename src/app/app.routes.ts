@@ -4,6 +4,8 @@ import { ContactPage } from './contact/contact-page/contact-page';
 import { NavStudent } from './nav-student/nav-student';
 import { Docs } from './docs/docs';
 import { PageNotFound } from './error/page-not-found/page-not-found';
+import { NavTeacher } from './nav-teacher/nav-teacher';
+import { NavInstitution } from './nav-institution/nav-institution';
 
 
 export const routes: Routes = [
@@ -11,5 +13,8 @@ export const routes: Routes = [
   { path: 'contact', component: ContactPage },
   { path: 'docs', component: Docs },
   { path: 'students', component: NavStudent },
+  { path: 'teachers', component: NavTeacher },
+  { path: 'institutions', component: NavInstitution },
   { path: '**', component: PageNotFound },
+  
 ];
