@@ -1,5 +1,5 @@
-<div class="min-h-screen flex flex-col bg-gray-100">
+<div class="min-h-screen flex flex-col bg-gray-100" [@routeAnimations]="prepareRoute(outlet)">
   <app-nav></app-nav>
-  <router-outlet (activte)="scrollUp()"></router-outlet>
+  <router-outlet #outlet="outlet" (activate)="scrollUp()"></router-outlet>
   <app-footer></app-footer>
 </div>

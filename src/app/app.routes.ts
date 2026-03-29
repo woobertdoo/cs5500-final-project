@@ -9,12 +9,12 @@ import { NavInstitution } from './nav-institution/nav-institution';
 
 
 export const routes: Routes = [
-  { path: '', component: Hero },
-  { path: 'contact', component: ContactPage },
-  { path: 'docs', component: Docs },
-  { path: 'students', component: NavStudent },
-  { path: 'teachers', component: NavTeacher },
-  { path: 'institutions', component: NavInstitution },
-  { path: '**', component: PageNotFound },
-  
+  { path: '', component: Hero, data: { animation: 'HeroPage' } },
+  { path: 'contact', component: ContactPage, data: { animation: 'ContactPage' } },
+  { path: 'docs', component: Docs, data: { animation: 'DocsPage' } },
+  { path: 'students', component: NavStudent, data: { animation: 'StudentsPage' } },
+  { path: 'teachers', component: NavTeacher, data: { animation: 'TeachersPage' } },
+  { path: 'institutions', component: NavInstitution, data: { animation: 'InstitutionsPage' } },
+  { path: '**', component: PageNotFound, data: { animation: 'PageNotFound' } },
+
 ];
