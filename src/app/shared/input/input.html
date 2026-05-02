@@ -1,0 +1,23 @@
+<input
+  [type]="type()"
+  class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-white hover:border-gray-300"
+  [placeholder]="placeholder()"
+  [formControl]="control()"
+  [mask]="format()"
+  [dropSpecialCharacters]="false"
+  [id]="inputId()"
+/>
+
+@if (control().touched && control().dirty) {
+  @if (control().hasError('required')) {
+    <p class="text-red-400">Field is required.</p>
+  }
+  @if (control().hasError('minlength')) {
+    <p class="text-red-400">
+      Name must be at least {{ control().getError('minlength').requiredLength }} characters long
+    </p>
+  }
+  @if (control().hasError('email')) {
+    <p class="text-red-400">Invalid email address</p>
+  }
+}

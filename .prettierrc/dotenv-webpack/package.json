@@ -1,0 +1,69 @@
+{
+  "name": "dotenv-webpack",
+  "description": "A simple webpack plugin to support dotenv.",
+  "version": "9.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "precommit": "npm run lint",
+    "prepush": "npm t",
+    "lint": "XDG_CACHE_HOME=./.cache standard",
+    "predoc": "rimraf docs",
+    "doc": "jsdoc src/index.js -d docs",
+    "test": "jest",
+    "build": "node -e \"require('./src')\"",
+    "travis": "npm run lint && npm t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrsteele/dotenv-webpack.git"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "watchPathIgnorePatterns": [
+      "output/.*?"
+    ]
+  },
+  "keywords": [
+    "dotenv",
+    "env",
+    "safe",
+    "environment",
+    "dotenv-safe",
+    "variables",
+    "process",
+    "process.env",
+    "webpack",
+    "plugin"
+  ],
+  "author": "Matt Steele <hi@mrsteele.dev> (http://mrsteele.dev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrsteele/dotenv-webpack/issues"
+  },
+  "homepage": "https://github.com/mrsteele/dotenv-webpack#readme",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "peerDependencies": {
+    "webpack": "^4 || ^5"
+  },
+  "dependencies": {
+    "dotenv-defaults": "^5.0.2"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "jsdoc": "^4.0.5",
+    "rimraf": "^6.0.1",
+    "sinon": "^21.0.0",
+    "standard": "^17.1.2",
+    "webpack": "^5.102.1"
+  },
+  "files": [
+    "src",
+    "types/index.d.ts"
+  ],
+  "browser": "src/index.js",
+  "types": "types/index.d.ts"
+}
