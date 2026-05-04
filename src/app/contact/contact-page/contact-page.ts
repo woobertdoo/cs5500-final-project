@@ -97,24 +97,6 @@ export class ContactPage {
 
   ngOnInit() {
     this.initSendUsEmailSections();
-    requestAnimationFrame(() => this.initSendUsEmailSections);
-    setTimeout(() => this.initSendUsEmailSections, 0);
-  }
-  // Initial load
-
-
-
-  constructor() {
-    /*    if (document.readyState === DocumentState) {
-          document.addEventListener("DOMContentLoaded", this.scheduleInit, { once: true });
-        } else {
-          this.scheduleInit();
-        }
-
-        /*
-            document.addEventListener("astro:after-swap", this.scheduleInit);
-            document.addEventListener("astro:page-load", this.scheduleInit);
-            window.addEventListener("pageshow", this.scheduleInit); */
   }
 }
 
