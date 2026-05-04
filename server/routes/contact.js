@@ -1,8 +1,6 @@
 const express = require('express');
 const resendApi = require('resend');
 
-process.loadEnvFile();
-
 const resend = new resendApi.Resend(process.env.RESEND_API_KEY);
 const router = express.Router();
 
