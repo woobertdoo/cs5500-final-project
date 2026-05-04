@@ -3,8 +3,6 @@
   class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-white hover:border-gray-300"
   [placeholder]="placeholder()"
   [formControl]="control()"
-  [mask]="format()"
-  [dropSpecialCharacters]="false"
   [id]="inputId()"
 />
 
@@ -19,5 +17,8 @@
   }
   @if (control().hasError('email')) {
     <p class="text-red-400">Invalid email address</p>
+  }
+  @if (control().hasError('EmailNoMatch')) {
+    <p class="text-red-400">Email and Confirm Email must match</p>
   }
 }
