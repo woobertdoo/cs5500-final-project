@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-hero',
@@ -8,7 +9,7 @@ import { DecimalPipe } from '@angular/common';
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })
-export class Hero implements OnInit {
+export class Hero implements OnInit, AfterViewInit   {
   countries = 0;
   institutions = 0;
   activeUsers = 0;
@@ -50,5 +51,23 @@ export class Hero implements OnInit {
     };
 
     requestAnimationFrame(animationFrame);
+  }
+
+
+  ngAfterViewInit() {
+  const animatedItems = document.querySelectorAll('[data-animate]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  animatedItems.forEach((item) => observer.observe(item));
   }
 }

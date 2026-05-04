@@ -93,3 +93,16 @@ body {
     width: 100%;
   }
 }
+
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: all 0.9s ease-out;
+}
+
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
