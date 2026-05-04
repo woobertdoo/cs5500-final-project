@@ -6,7 +6,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/server.js",
     "client": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
+    "start:prod": "NODE_ENV=production node server/server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
