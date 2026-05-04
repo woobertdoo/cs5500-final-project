@@ -2,9 +2,8 @@ import { Component, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms'
 import { CommonModule } from '@angular/common';
 import { Input } from '../../shared/input/input';
+import { EmailService } from '../../services/email.service';
 import { confirmEmailValidator } from '../../../validators/confirm-email.validator';
-import { Resend } from 'resend';
-import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-contact-form',
@@ -13,27 +12,44 @@ import { environment } from '../../../environments/environment.development';
   styleUrl: './contact-form.css',
 })
 export class ContactForm {
+  emailService = inject(EmailService);
   fb = inject(FormBuilder);
-  resend = new Resend(environment.RESEND_API_KEY);
+
+  sending = signal(false);
+  status = signal<"idle" | "sent" | "error">("idle");
+  errorMessage = signal("");
 
   form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     confirmEmail: ['', [Validators.required, Validators.email]],
     subject: ['', [Validators.required]],
-    message: ['', [Validators.required]],
+    message: ['', []]
   }, {
     validators: [confirmEmailValidator]
   });
 
-  async sendEmail() {
-    if (this.form.value.email && this.form.value.name) {
-      const { data, error } = await this.resend.emails.send({
-        from: 'Jamie <jamie.a.harris97@gmail.com>',
-        to: [this.form.value.email],
-        subject: 'We have received your message',
-        html: `Thank you for contacting us, ${this.form.value.name}`
-      });
-    }
+  onSubmit() {
+    console.log("Sending Message");
+    this.sending.set(true);
+    this.status.set("idle");
+
+    const name = this.form.controls.name.value;
+    const email = this.form.controls.email.value;
+
+    this.emailService.sendContactEmail(this.form.value as { name: string, email: string }).subscribe({
+      next: () => {
+        this.status.set("sent");
+        this.sending.set(false);
+        this.form.reset();
+        console.log("Message Sent!");
+      },
+      error: (err) => {
+        this.status.set("error");
+        this.errorMessage.set(err.error?.error || "Failed to send. Try again");
+        this.sending.set(false);
+      }
+    });
   }
+
 }
