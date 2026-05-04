@@ -11,3 +11,11 @@ nav {
   padding-bottom: 0.75rem;
   padding-top: 0px;
 }
+
+.dark-mode {
+  padding: 8px 12px;
+  border: 1px solid var(--text);
+  background: var(--nav-bg);
+  color: var(--text);
+  cursor: pointer;
+}
