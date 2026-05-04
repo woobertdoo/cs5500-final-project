@@ -3,10 +3,14 @@
     <div class="mx-auto flex justify-between items-center py-1 px-4 max-md:px-2 w-full max-w-7xl">
       <!-- LOGO -->
       <div class="flex flex-col items-start justify-start shrink-0">
-        <a class="nounderline flex items-center rounded-md" [routerLink]="'/'">
-          <img class="h-10 w-auto object-containt" src="mainLogo.BmWbPggq_1Jmxbr.webp" alt="Logo" width="1140"
-            height="358" />
+        <a href="/" class="nounderline flex items-center rounded-md
+         focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2"
+         aria-label="Course Insight home">
+          <img src="Course Insight Logo.png" alt="Course Insight logo" class="h-10 w-auto object-contain"/>
         </a>
+        <span class="mt-1 text-sm whitespace-nowrap text-slate-600">
+        Every Story Starts with Student's Work
+        </span>
       </div>
       <!-- DESKTOP NAV -->
       <div class="max-lg:hidden justify-center h-full">
@@ -65,6 +69,89 @@
           </div>
         </ul>
       </div>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        class="lg:hidden flex flex-col gap-1.5 justify-center items-center w-10 h-10 rounded-md hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+        (click)="toggleMobileMenu()"
+        [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'"
+        [attr.aria-expanded]="isMobileMenuOpen()">
+        <!-- Burger icon -->
+        <span class="block w-6 h-0.5 bg-slate-700 transition-all" [class.rotate-45]="isMobileMenuOpen()" [class.translate-y-2]="isMobileMenuOpen()"></span>
+        <span class="block w-6 h-0.5 bg-slate-700 transition-all" [class.opacity-0]="isMobileMenuOpen()"></span>
+        <span class="block w-6 h-0.5 bg-slate-700 transition-all" [class.-rotate-45]="isMobileMenuOpen()" [class.-translate-y-2]="isMobileMenuOpen()"></span>
+      </button>
     </div>
+
+    <!-- MOBILE NAV MENU -->
+    @if (isMobileMenuOpen()) {
+      <div class="lg:hidden fixed inset-0 z-40">
+        <div class="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
+        <div class="relative top-20 mx-auto w-full bg-[#C8DFFB] shadow-lg overflow-hidden">
+          <div class="flex flex-col w-full">
+            <!-- Home Link -->
+            <a (click)="closeMobileMenu()" class="nounderline px-4 py-4 text-base text-blue-600 font-medium hover:bg-blue-200/70 transition-colors border-b border-blue-300"
+              [routerLink]="'/'">Home</a>
+          
+          <!-- Student Tools Section -->
+          <div class="border-b border-blue-300 bg-[#C8DFFB]">
+            <button type="button" (click)="toggleSection('student')" class="w-full text-left px-4 py-4 text-base text-blue-600 font-medium bg-[#C8DFFB] hover:bg-blue-200/70 transition-colors flex justify-between items-center cursor-pointer">
+              <span>Student Tools</span>
+              <svg class="w-5 h-5 transition-transform" [class.rotate-90]="!expandedSections()['student']" [class.-rotate-90]="expandedSections()['student']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <div [hidden]="!expandedSections()['student']">
+              <a (click)="closeMobileMenu()" class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
+                [routerLink]="'students'">Student Guides</a>
+            </div>
+          </div>
+
+          <!-- Teacher Tools Section -->
+          <div class="border-b border-blue-300 bg-[#C8DFFB]">
+            <button type="button" (click)="toggleSection('teacher')" class="w-full text-left px-4 py-4 text-base text-blue-600 font-medium bg-[#C8DFFB] hover:bg-blue-200/70 transition-colors flex justify-between items-center cursor-pointer">
+              <span>Teacher Tools</span>
+              <svg class="w-5 h-5 transition-transform" [class.rotate-90]="!expandedSections()['teacher']" [class.-rotate-90]="expandedSections()['teacher']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <div [hidden]="!expandedSections()['teacher']">
+              <a (click)="closeMobileMenu()" class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
+                [routerLink]="'teachers'">Teacher Guides</a>
+            </div>
+          </div>
+
+          <!-- Institutions Section -->
+          <div class="border-b border-blue-300 bg-[#C8DFFB]">
+            <button type="button" (click)="toggleSection('institutions')" class="w-full text-left px-4 py-4 text-base text-blue-600 font-medium bg-[#C8DFFB] hover:bg-blue-200/70 transition-colors flex justify-between items-center cursor-pointer">
+              <span>Institutions</span>
+              <svg class="w-5 h-5 transition-transform" [class.rotate-90]="!expandedSections()['institutions']" [class.-rotate-90]="expandedSections()['institutions']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <div [hidden]="!expandedSections()['institutions']">
+              <a (click)="closeMobileMenu()" class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
+                [routerLink]="'institutions'">Institution Docs</a>
+            </div>
+          </div>
+
+            <!-- About Section -->
+          <div class="border-b border-blue-300 bg-[#C8DFFB]">
+            <button type="button" (click)="toggleSection('about')" class="w-full text-left px-4 py-4 text-base text-blue-600 font-medium bg-[#C8DFFB] hover:bg-blue-200/70 transition-colors flex justify-between items-center cursor-pointer">
+              <span>About</span>
+              <svg class="w-5 h-5 transition-transform" [class.rotate-90]="!expandedSections()['about']" [class.-rotate-90]="expandedSections()['about']" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            <div [hidden]="!expandedSections()['about']">
+              <a (click)="closeMobileMenu()" class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
+                [routerLink]="'contact'">Contact</a>
+            </div>
+          </div>
+          </div> 
+        </div>   
+      </div>    
+
+    }
   </nav>
 </div>
