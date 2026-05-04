@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { Nav } from './shared/nav/nav';
 import { Footer } from './shared/footer/footer';
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
-import { environment } from '../environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +39,6 @@ export class App {
   ngOnInit() {
 
 
-    console.log(environment['RESEND_API_KEY']);
   }
 }
 
