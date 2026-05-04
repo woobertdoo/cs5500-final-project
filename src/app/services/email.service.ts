@@ -20,6 +20,7 @@ export class EmailService {
   private http = inject(HttpClient);
 
   sendContactEmail(data: ContactRequest): Observable<ApiResponse> {
+    console.log(environment.apiUrl);
     return this.http.post<ApiResponse>(`${environment.apiUrl}/contact`, data);
   }
 }
