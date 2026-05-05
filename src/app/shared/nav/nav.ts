@@ -1,11 +1,12 @@
 import { Component, signal, OnDestroy } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { NavDropdown } from '../nav-dropdown/nav-dropdown';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
-  imports: [CommonModule, NavDropdown, RouterLink],
+  imports: [CommonModule, NgIf, NavDropdown, RouterLink],
   templateUrl: './nav.html',
   styleUrl: './nav.css',
 })
@@ -56,6 +57,7 @@ export class Nav implements OnDestroy {
 
     if (typeof document !== 'undefined') {
       document.body.style.overflow = nextState ? 'hidden' : '';
+      document.documentElement.style.overflow = nextState ? 'hidden' : '';
     }
   }
 
@@ -70,6 +72,7 @@ export class Nav implements OnDestroy {
 
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
   }
 
@@ -90,6 +93,7 @@ export class Nav implements OnDestroy {
   ngOnDestroy() {
     if (typeof document !== 'undefined') {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
   }  
 

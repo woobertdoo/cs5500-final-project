@@ -87,6 +87,17 @@ body {
   text-decoration: none;
 }
 
+[data-animate], [data-animation] {
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+[data-animate].visible, [data-animation].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .content-section {
   padding-top: 40px;
   padding-inline: 16px;

@@ -2,7 +2,7 @@
   <app-nav></app-nav>
 
   <main class="flex-1 w-full">
-    <router-outlet #outlet="outlet" (activate)="scrollUp()"></router-outlet>
+    <router-outlet #outlet="outlet" (activate)="onRouteActivated()"></router-outlet>
   </main>
 
   <app-footer></app-footer>
