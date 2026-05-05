@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-=======
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
->>>>>>> e40b1d2 (Functional mobile menu and animations)
 import { RouterOutlet } from '@angular/router';
 import { Nav } from './shared/nav/nav';
 import { Footer } from './shared/footer/footer';
@@ -55,11 +51,6 @@ export class App implements AfterViewInit, OnDestroy {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
-<<<<<<< HEAD
-  ngOnInit() {
-
-
-=======
   private initializeScrollFade() {
     if (typeof document === 'undefined' || typeof IntersectionObserver === 'undefined') {
       return;
@@ -93,7 +84,6 @@ export class App implements AfterViewInit, OnDestroy {
         this.fadeObserver?.observe(element);
       }
     });
->>>>>>> e40b1d2 (Functional mobile menu and animations)
   }
 }
 

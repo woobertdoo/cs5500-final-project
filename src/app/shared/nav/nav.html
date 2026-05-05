@@ -156,21 +156,18 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </button>
-            <div [hidden]="!expandedSections()['about']">
-              <a (click)="closeMobileMenu()" class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
-                [routerLink]="'contact'">Contact</a>
+             <div [hidden]="!expandedSections()['about']">
+              <a
+                (click)="closeMobileMenu()"
+                class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
+                [routerLink]="'contact'">
+                Contact
+              </a>
             </div>
           </div>
-<<<<<<< HEAD
-          </div> 
-        </div>   
-      </div>    
 
-    }
-  </nav>
-</div>
-=======
         </div>
       </div>
-
->>>>>>> e40b1d2 (Functional mobile menu and animations)
+    </div>
+  </nav>
+</div>
