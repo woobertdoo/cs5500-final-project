@@ -86,7 +86,7 @@
 
       <!-- MOBILE MENU BUTTON -->
       <button
-        class="lg:hidden flex flex-col gap-1.5 justify-center items-center w-10 h-10 rounded-md hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+        class="lg:hidden relative z-50 flex flex-col gap-1.5 justify-center items-center w-10 h-10 rounded-md hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
         (click)="toggleMobileMenu()"
         [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'"
         [attr.aria-expanded]="isMobileMenuOpen()">
@@ -98,9 +98,8 @@
     </div>
 
     <!-- MOBILE NAV MENU -->
-    @if (isMobileMenuOpen()) {
-      <div class="lg:hidden fixed inset-0 z-40">
-        <div class="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
+      <div *ngIf="isMobileMenuOpen()" class="lg:hidden fixed inset-0 z-40">
+        <div class="absolute inset-0 bg-black/20"></div>
         <div class="relative top-20 mx-auto w-full bg-[#C8DFFB] shadow-lg overflow-hidden">
           <div class="flex flex-col w-full">
             <!-- Home Link -->
@@ -162,6 +161,7 @@
                 [routerLink]="'contact'">Contact</a>
             </div>
           </div>
+<<<<<<< HEAD
           </div> 
         </div>   
       </div>    
@@ -169,3 +169,8 @@
     }
   </nav>
 </div>
+=======
+        </div>
+      </div>
+
+>>>>>>> e40b1d2 (Functional mobile menu and animations)
