@@ -1,10 +1,11 @@
 import { Component, signal, OnDestroy } from '@angular/core';
 import { NavDropdown } from '../nav-dropdown/nav-dropdown';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
-  imports: [NavDropdown, RouterLink],
+  imports: [CommonModule, NavDropdown, RouterLink],
   templateUrl: './nav.html',
   styleUrl: './nav.css',
 })
@@ -16,6 +17,29 @@ export class Nav implements OnDestroy {
     institutions: false,
     about: false,
   });
+  isDark = false;
+
+  ngOnInit(): void {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      this.isDark = true;
+    }
+  }
+
+  toggleTheme() {
+    this.isDark = !this.isDark;
+    // const currentTheme = document.documentElement.getAttribute("data-theme");
+
+    if (this.isDark) {
+    document.documentElement.setAttribute("data-theme", "dark"); // ✅ correct
+    localStorage.setItem("theme", "dark");
+    } else {
+    document.documentElement.removeAttribute("data-theme"); // ✅ back to light
+    localStorage.setItem("theme", "light");
+    } 
+  }
 
   toggleMobileMenu() {
     const nextState = !this.isMobileMenuOpen();
@@ -68,22 +92,14 @@ export class Nav implements OnDestroy {
       document.body.style.overflow = '';
     }
   }  
-  toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
 
-    if (currentTheme === "dark") {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    }
-  }
 
-  ngOnInit(): void {
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  }
+  // ngOnInit(): void {
+  //   if (localStorage.getItem("theme") === "dark") {
+  //     document.documentElement.setAttribute("data-theme", "dark");
+  //   }
+  // }
+  
 
+  
 }

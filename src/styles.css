@@ -6,8 +6,20 @@
 /* Dark mode */
   --bg: #ffffff;
   --text: #000000;
-  --nav-bg: #ffffff;
-  --card-bg: #f5f5f5;
+  --btn-text: #ffffff;
+  --card-bg-grid: #EDF1FA;
+  --section-blue-bg: #f4f9ff;
+  --section-bl-gradient: linear-gradient(
+    to bottom,
+    #95CFFA,
+    #E7F5FE
+  );
+  --section-grn-gradient: linear-gradient(
+    to bottom,
+    rgba(244, 251, 245, 1),
+    rgba(252, 254, 251, 1)
+  );
+  --arrow-icn:#6EB3FA;
 /* ------------------ */
   --spacing: 0.25rem;
   --font-weight-medium: 500;
@@ -19,8 +31,20 @@
 [data-theme="dark"] {
   --bg: #121212;
   --text: #ffffff;
-  --nav-bg: #1a1a1a;
-  --card-bg: #1e1e1e;
+  --section-blue-bg: #1e293b;
+  --section-bl-gradient: linear-gradient(
+    to top,
+    #1a2f50,
+    #0f172a
+  );
+  --section-grn-gradient: linear-gradient(
+    to top,
+    #1a2f50,
+    #0f172a
+  );
+  --btn-text: #1a1a1a;
+  --card-bg-grid: #262e41;
+  --arrow-icn:#1d4ed8;
 }
 
 html,
