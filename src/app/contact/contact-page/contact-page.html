@@ -1,73 +1,106 @@
 <main class="flex-1">
 
   <!-- HERO -->
-<section class="w-full overflow-hidden bg-gradient-to-b from-[#95CFFA] to-[#E7F5FE] px-4 pt-16 pb-14 sm:px-6 md:pt-20 lg:pt-24 text-center">
-  <div class="mx-auto max-w-[1200px]">
+  <section
+    data-animation
+    class="relative w-full overflow-hidden bg-white px-4 pt-16 pb-14 text-center sm:px-6 md:pt-20 lg:pt-24">
 
-  <h1 data-animate class="opacity-80 text-5xl max-w-4xl mx-auto text-gray-600 font-normal leading-tight mb-6">
-  Contact Us
-  </h1>
+    <!-- Soft background wave idea -->
+    <div class="absolute inset-x-[-30%] top-[30%] z-0 h-[420px] rounded-[50%] bg-[#E7EDFB] opacity-80"></div>
+    <div class="absolute inset-x-[-20%] top-[45%] z-0 h-[340px] rounded-[50%] bg-[#D9EBFF] opacity-70"></div>
+    <div class="absolute inset-x-[10%] top-[65%] z-0 h-[220px] rounded-[50%] bg-[#B3D3FE] opacity-60"></div>
 
-    <p data-animate class="mx-auto max-w-[850px] text-base leading-8 text-[#27364a] sm:text-lg">
-      Reach out to us with your questions or feedback
-    </p>
+    <div class="relative z-10 mx-auto max-w-[1200px]">
+      <h1
+        data-animate
+        class="mx-auto mb-6 max-w-4xl text-5xl font-normal leading-tight text-gray-600 opacity-80">
+        Contact Us
+      </h1>
 
-  </div>
-</section>
+      <p
+        data-animate
+        class="mx-auto max-w-[850px] text-base leading-8 text-[#27364a] sm:text-lg">
+        Reach out to us with your questions or feedback
+      </p>
+    </div>
+  </section>
 
   <!-- EMAIL SECTION -->
-  <section class="bg-white px-4 py-16 text-center">
-    <h2 data-animate class="text-3xl font-bold text-[#003066]">Send us an email</h2>
+  <section data-send-us-email data-animation class="bg-white px-4 py-16 text-center">
+    <h2 data-animate class="text-3xl font-bold text-[#003066]">
+      Send us an email
+    </h2>
 
     <div class="mx-auto mt-8 flex max-w-4xl flex-col items-center gap-10 text-left lg:flex-row">
       <div class="flex-1">
         <p data-animate class="text-lg leading-8 text-slate-700">
           We can be reached at
-          <a href="mailto:test@test.com" data-animate class="text-blue-600 underline">test@test.com</a>,
+          <a href="mailto:test@test.com" class="text-blue-600 underline">
+            test@test.com
+          </a>,
           which is our preferred method of communication.
         </p>
 
         <div data-animate class="mt-6 text-center">
           <button
             type="button"
-            class="rounded-full border border-[#003066] px-6 py-3 font-semibold text-[#003066] transition hover:scale-95"
-          >
-            Copy Email Address
+            (click)="copyEmailAddress()"
+            [disabled]="emailCopied()"
+            class="rounded-full border border-[#003066] px-6 py-3 font-semibold text-[#003066]
+                   transition hover:scale-95 disabled:cursor-not-allowed disabled:opacity-50
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+            {{ emailCopied() ? 'Email Address Copied' : 'Copy Email Address' }}
           </button>
+
+          @if (emailCopied()) {
+            <p class="mx-auto mt-6 max-w-md rounded-lg border border-green-200 bg-green-50 px-6 py-4 text-center text-green-800">
+              Email address copied. Open your email, paste the address, and send your message.
+            </p>
+          }
         </div>
       </div>
 
-      <div class="flex-1">
-        <img data-animate class="mx-auto max-w-[260px] rounded-xl" src="Send Email.png" alt="Contact illustration" />
+      <div data-animate class="flex-1">
+        <img
+          class="mx-auto max-w-[260px] rounded-xl"
+          src="Send Email.png"
+          alt="Envelope contact illustration" />
       </div>
     </div>
   </section>
 
-<!-- MESSAGE SECTION -->
-<section class="bg-blue-50 px-4 py-16 text-center">
-  <h2 data-animate class="text-3xl font-bold text-[#003066]">Send us a message</h2>
+  <!-- MESSAGE SECTION -->
+  <section data-animation class="bg-blue-50 px-4 py-16 text-center">
+    <h2 data-animate class="text-3xl font-bold text-[#003066]">
+      Send us a message
+    </h2>
 
-  <p data-animate class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-    Use the form below to send us a message. Please double check your email address before submitting.
-  </p>
+    <p data-animate class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+      Use the form below to send us a message. Please double check your email address before submitting.
+    </p>
 
-  <div class="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-10 text-left md:flex-row md:items-start md:justify-center">
+    <div class="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-10 text-left md:flex-row md:items-start md:justify-center">
+      <div data-animate class="flex w-full shrink-0 justify-center md:w-[350px]">
+        <img
+          class="w-full max-w-[350px] object-contain"
+          src="Send Message.png"
+          alt="Message illustration" />
+      </div>
 
-    <div data-animate class="w-full md:w-[350px] flex justify-center shrink-0">
-      <img class="w-full max-w-[350px] object-contain" src="Send Message.png" alt="Mail illustration" />
+      <div
+        data-animate
+        class="form-container w-full max-w-[520px] rounded-3xl border border-gray-200
+               bg-gradient-to-br from-blue-50 via-white to-blue-50 p-6 shadow-xl">
+        <app-contact-form></app-contact-form>
+      </div>
     </div>
-
-    
-   <div data-animate class="form-container w-full max-w-[520px] rounded-3xl border border-gray-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-6 shadow-xl">
-      <app-contact-form></app-contact-form>
-   </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- MEETING SECTION -->
-  <section class="bg-white px-4 py-16 text-center">
-    <h2 data-animateclass="text-3xl font-bold text-[#003066]">Schedule a meeting</h2>
+  <section data-animation class="bg-white px-4 py-16 text-center">
+    <h2 data-animate class="text-3xl font-bold text-[#003066]">
+      Schedule a meeting
+    </h2>
 
     <div class="mx-auto mt-8 flex max-w-4xl flex-col items-center gap-10 text-left lg:flex-row">
       <div class="flex-1">
@@ -75,33 +108,46 @@
           If you'd like to ask a question or share your thoughts, you are welcome to schedule a meeting.
         </p>
 
-        <div class="mt-6 text-center">
-          <a href="#" data-animate class="inline-flex rounded-full border border-[#003066] px-6 py-3 font-semibold text-[#003066] transition hover:scale-95">
+        <div data-animate class="mt-6 text-center">
+          <a
+            href="#"
+            class="inline-flex rounded-full border border-[#003066] px-6 py-3 font-semibold text-[#003066]
+                   transition hover:scale-95 focus-visible:outline-none focus-visible:ring-2
+                   focus-visible:ring-blue-600 focus-visible:ring-offset-2">
             Schedule a Meeting
           </a>
         </div>
       </div>
 
       <div data-animate class="flex-1">
-        <img class="mx-auto max-w-[260px] rounded-xl" src="Schedule A Meeting.png" alt="Calendar illustration" />
+        <img
+          class="mx-auto max-w-[260px] rounded-xl"
+          src="Schedule A Meeting.png"
+          alt="Calendar illustration" />
       </div>
     </div>
   </section>
 
   <!-- CAREERS SECTION -->
-  <section class="bg-[#D9EBFF] px-4 py-16 text-center">
-    <h2 data-animate class="text-3xl font-bold text-[#003066]">Careers at Course Insight</h2>
+  <section data-animation class="bg-[#D9EBFF] px-4 py-16 text-center">
+    <h2 data-animate class="text-3xl font-bold text-[#003066]">
+      Careers at Course Insight
+    </h2>
 
     <div class="mx-auto mt-8 flex max-w-4xl flex-col items-center gap-10 text-left lg:flex-row">
       <div data-animate class="flex-1">
-        <img class="mx-auto max-w-[260px] rounded-xl" src="Growth.png" alt="Growth illustration" />
+        <img
+          class="mx-auto max-w-[260px] rounded-xl"
+          src="Growth.png"
+          alt="Growth illustration" />
       </div>
 
       <div data-animate class="flex-1">
         <p class="text-lg leading-8 text-slate-700">
           We are always looking for volunteers and students who are passionate about solving meaningful problems.
         </p>
-        <p data-animate class="mt-4 text-lg leading-8 text-slate-700">
+
+        <p class="mt-4 text-lg leading-8 text-slate-700">
           If you're interested in contributing, please email us with your ideas for how Course Insight could be improved.
         </p>
       </div>

@@ -67,12 +67,26 @@
             <app-nav-dropdown [routes]="['contact']" [linkTexts]="['Contact' ]">
             </app-nav-dropdown>
           </div>
+          <div class="nav-item relative h-full flex items-center group">
+
+            <button
+              (click)="toggleTheme()"
+              class="relative flex h-6 w-18 items-center rounded-full px-1 transition duration-300"
+              [style.background]="isDark ? '#1a2f50' : '#EDF1FA'">
+
+              <span class="flex items-center justify-center h-8 w-8 rounded-full bg-white shadow-md transition-transform duration-300"
+                [style.transform]="isDark ? 'translateX(28px)' : 'translateX(0px)'">
+                {{ isDark ? '🌙' : '☀️' }}
+              </span>
+
+            </button>      
+          </div>
         </ul>
       </div>
 
       <!-- MOBILE MENU BUTTON -->
       <button
-        class="lg:hidden flex flex-col gap-1.5 justify-center items-center w-10 h-10 rounded-md hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+        class="lg:hidden relative z-50 flex flex-col gap-1.5 justify-center items-center w-10 h-10 rounded-md hover:bg-blue-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
         (click)="toggleMobileMenu()"
         [attr.aria-label]="isMobileMenuOpen() ? 'Close menu' : 'Open menu'"
         [attr.aria-expanded]="isMobileMenuOpen()">
@@ -84,9 +98,8 @@
     </div>
 
     <!-- MOBILE NAV MENU -->
-    @if (isMobileMenuOpen()) {
-      <div class="lg:hidden fixed inset-0 z-40">
-        <div class="absolute inset-0 bg-black/10 backdrop-blur-sm"></div>
+      <div *ngIf="isMobileMenuOpen()" class="lg:hidden fixed inset-0 z-40">
+        <div class="absolute inset-0 bg-black/20"></div>
         <div class="relative top-20 mx-auto w-full bg-[#C8DFFB] shadow-lg overflow-hidden">
           <div class="flex flex-col w-full">
             <!-- Home Link -->
@@ -143,15 +156,18 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
             </button>
-            <div [hidden]="!expandedSections()['about']">
-              <a (click)="closeMobileMenu()" class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
-                [routerLink]="'contact'">Contact</a>
+             <div [hidden]="!expandedSections()['about']">
+              <a
+                (click)="closeMobileMenu()"
+                class="nounderline block w-full px-8 py-4 text-base text-blue-600 hover:bg-blue-200 transition-colors"
+                [routerLink]="'contact'">
+                Contact
+              </a>
             </div>
           </div>
-          </div> 
-        </div>   
-      </div>    
 
-    }
+        </div>
+      </div>
+    </div>
   </nav>
 </div>
