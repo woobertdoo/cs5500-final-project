@@ -6,6 +6,10 @@ import { environment } from '../../environments/environment';
 export interface ContactRequest {
   name: string;
   email: string;
+  confirmEmail?: string;
+  subject?: string;
+  message?: string;
+  turnstileToken: string;
 }
 
 export interface ApiResponse {

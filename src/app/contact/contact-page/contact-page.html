@@ -15,33 +15,44 @@
   </div>
 </section>
 
-  <!-- EMAIL SECTION -->
-  <section class="bg-white px-4 py-16 text-center">
-    <h2 data-animate class="text-3xl font-bold text-[#003066]">Send us an email</h2>
+<!-- EMAIL SECTION -->
+<section data-send-us-email class="bg-white px-4 py-16 text-center">
+  <h2 data-animate class="text-3xl font-bold text-[#003066]">Send us an email</h2>
 
-    <div class="mx-auto mt-8 flex max-w-4xl flex-col items-center gap-10 text-left lg:flex-row">
-      <div class="flex-1">
-        <p data-animate class="text-lg leading-8 text-slate-700">
-          We can be reached at
-          <a href="mailto:test@test.com" data-animate class="text-blue-600 underline">test@test.com</a>,
-          which is our preferred method of communication.
-        </p>
+  <div class="mx-auto mt-8 flex max-w-4xl flex-col items-center gap-10 text-left lg:flex-row">
+    <div class="flex-1">
+      <p data-animate class="text-lg leading-8 text-slate-700">
+        We can be reached at
+        <a href="mailto:test@test.com" data-animate class="text-blue-600 underline">test@test.com</a>,
+        which is our preferred method of communication.
+      </p>
 
-        <div data-animate class="mt-6 text-center">
-          <button
-            type="button"
-            class="rounded-full border border-[#003066] px-6 py-3 font-semibold text-[#003066] transition hover:scale-95"
-          >
-            Copy Email Address
-          </button>
-        </div>
-      </div>
+      <div data-animate class="mt-6 text-center">
+        <button
+          type="button"
+          (click)="copyEmailAddress()"
+          [disabled]="emailCopied()"
+          class="rounded-full border border-[#003066] px-6 py-3 
+          font-semibold text-[#003066] transition hover:scale-95 
+          disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none 
+          focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">
+          {{ emailCopied() ? 'Email Address Copied' : 'Copy Email Address' }}
+        </button>
 
-      <div class="flex-1">
-        <img data-animate class="mx-auto max-w-[260px] rounded-xl" src="Send Email.png" alt="Contact illustration" />
+        @if (emailCopied()) {
+          <p class="mx-auto mt-6 max-w-md rounded-lg border border-green-200 
+             bg-green-50 px-6 py-4 text-center text-green-800">
+            Email address copied. Open your email, paste the address, and send your message.
+          </p>
+        }
       </div>
     </div>
-  </section>
+
+    <div class="flex-1">
+      <img data-animate class="mx-auto max-w-[260px] rounded-xl" src="Send Email.png" alt="Contact illustration" />
+    </div>
+  </div>
+</section>
 
 <!-- MESSAGE SECTION -->
 <section class="bg-blue-50 px-4 py-16 text-center">
@@ -51,14 +62,16 @@
     Use the form below to send us a message. Please double check your email address before submitting.
   </p>
 
-  <div class="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-10 text-left md:flex-row md:items-start md:justify-center">
+  <div class="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-10 text-left 
+       md:flex-row md:items-start md:justify-center">
 
     <div data-animate class="w-full md:w-[350px] flex justify-center shrink-0">
       <img class="w-full max-w-[350px] object-contain" src="Send Message.png" alt="Mail illustration" />
     </div>
 
     
-   <div data-animate class="form-container w-full max-w-[520px] rounded-3xl border border-gray-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-6 shadow-xl">
+   <div data-animate class="form-container w-full max-w-[520px] rounded-3xl border 
+        border-gray-200 bg-gradient-to-br from-blue-50 via-white to-blue-50 p-6 shadow-xl">
       <app-contact-form></app-contact-form>
    </div>
 
@@ -76,7 +89,8 @@
         </p>
 
         <div class="mt-6 text-center">
-          <a href="#" data-animate class="inline-flex rounded-full border border-[#003066] px-6 py-3 font-semibold text-[#003066] transition hover:scale-95">
+          <a href="#" data-animate class="inline-flex rounded-full border border-[#003066] px-6 py-3 
+             font-semibold text-[#003066] transition hover:scale-95">
             Schedule a Meeting
           </a>
         </div>
