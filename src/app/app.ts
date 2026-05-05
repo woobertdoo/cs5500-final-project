@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Nav } from './shared/nav/nav';
 import { Footer } from './shared/footer/footer';
@@ -21,7 +21,7 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
           ], { optional: false }),
           query(':enter', [
             animate('5s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-          ], { optional: false})
+          ], { optional: false })
         ])
       ])
     ])
@@ -34,6 +34,11 @@ export class App {
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  ngOnInit() {
+
+
   }
 }
 

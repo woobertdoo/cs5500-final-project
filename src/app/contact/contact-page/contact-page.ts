@@ -1,4 +1,4 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal, OnInit, AfterViewInit } from '@angular/core';
 import { ContactForm } from '../form/contact-form';
 
 @Component({
@@ -7,7 +7,7 @@ import { ContactForm } from '../form/contact-form';
   imports: [ContactForm],
   styleUrl: './contact-page.css',
 })
-export class ContactPage {
+export class ContactPage implements OnInit, AfterViewInit {
   emailCopied = signal(false);
 
   copyEmail() {
@@ -97,26 +97,27 @@ export class ContactPage {
 
   ngOnInit() {
     this.initSendUsEmailSections();
-    requestAnimationFrame(() => this.initSendUsEmailSections);
-    setTimeout(() => this.initSendUsEmailSections, 0);
   }
-  // Initial load
 
+  ngAfterViewInit() {
+  const animatedItems = document.querySelectorAll('[data-animate]');
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
 
-  constructor() {
-    /*    if (document.readyState === DocumentState) {
-          document.addEventListener("DOMContentLoaded", this.scheduleInit, { once: true });
-        } else {
-          this.scheduleInit();
-        }
-
-        /*
-            document.addEventListener("astro:after-swap", this.scheduleInit);
-            document.addEventListener("astro:page-load", this.scheduleInit);
-            window.addEventListener("pageshow", this.scheduleInit); */
+  animatedItems.forEach((item) => observer.observe(item));
   }
+
 }
+
 
 
 

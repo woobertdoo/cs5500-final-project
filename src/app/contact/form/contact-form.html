@@ -1,35 +1,30 @@
-<form class="flex flex-col gap-1 w-full p-2" method="post">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-1 w-full p-2" method="post">
   <div class="text-left relative group max-md:flex flex-col md:grid md:grid-cols-4 md:items-center mt-2">
     <label class="font-medium text-gray-700 mb-2" for="name">
       Your name <span class="text-red-500">*</span>
     </label>
-    <input id="name"
-      class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-white hover:border-gray-300"
-      name="name" type="text" placeholder="John Doe" />
+    <app-input [control]="form.controls.name" inputId="name" name="name" type="text" placeholder="John Doe" />
   </div>
   <div class="text-left relative group max-md:flex flex-col md:grid md:grid-cols-4 md:items-center mt-2">
     <label class="font-medium text-gray-700 mb-2" for="email">
       Your email <span class="text-red-500">*</span>
     </label>
-    <input id="email"
-      class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-white hover:border-gray-300"
-      name="email" type="email" placeholder="you@university.edu" />
+    <app-input [control]="form.controls.email" inputId="email" name="email" type="email"
+      placeholder="you@university.edu" />
   </div>
   <div class="text-left relative group max-md:flex flex-col md:grid md:grid-cols-4 md:items-center mt-2">
     <label class="font-medium text-gray-700 mb-2" for="confirm-email">
       Retype email <span class="text-red-500">*</span>
     </label>
-    <input id="confirm-email"
-      class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-white hover:border-gray-300"
-      name="confirm-email" type="email" placeholder="you@university.edu" />
+    <app-input [control]="form.controls.confirmEmail" inputId="confirm-email" name="confirm-email" type="email"
+      placeholder="you@university.edu" />
   </div>
   <div class="text-left relative group max-md:flex flex-col md:grid md:grid-cols-4 md:items-center mt-2">
     <label class="font-medium text-gray-700 mb-2" for="subject">
       Subject <span class="text-red-500">*</span>
     </label>
-    <input id="subject"
-      class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none bg-white hover:border-gray-300"
-      name="subject" type="text" placeholder="Subject of your message" />
+    <app-input [control]="form.controls.subject" inputId="subject" name="subject" type="text"
+      placeholder="Subject of your message" />
   </div>
   <div class="text-left relative group max-md:flex flex-col md:grid md:grid-cols-4 mt-2">
 
@@ -38,9 +33,11 @@
     </label>
     <textarea
       class="col-span-3 border-2 border-gray-200 px-4 py-3 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 outline-none resize-none bg-white hover:border-gray-300"
-      id="message" name="message" placeholder="Share us your question or feedback" rows="5"></textarea>
+      id="message" name="message" placeholder="Share us your question or feedback" rows="5">
+    </textarea>
   </div>
-  <button class="header-btn self-center disabled:opacity-50 disabled:cursor-not-allowed" type="submit">
+  <button class="header-btn self-center disabled:opacity-50 disabled:cursor-not-allowed"
+    [disabled]="sending() || form.invalid" type="submit">
     <span data-submit-label>Send Message</span>
     <svg class="w-4 h-4" data-mail-icon fill="currentColor" viewBox="0 0 24 24">
       <path
@@ -49,3 +46,5 @@
     </svg>
   </button>
 </form>
+
+<div>{{ form.errors?.["EmailNoMatch"]}}</div>
