@@ -81,7 +81,7 @@ body {
   background-color: #027dff;
   color: #fff;
   font-weight: 500;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
   margin-top: 0.75rem;
   box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
   text-decoration: none;
@@ -160,12 +160,11 @@ h2 {
 }
 
 
-[data-animate] {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: all 0.9s ease-out;
-}
-
+ [data-animate] {
+        opacity: 0;
+        transition: all 1.2s ease-out;
+        transform: translateY(2.5rem)
+ }
 
 [data-animate].visible {
   opacity: 1;
