@@ -17,22 +17,25 @@ router.post('/contact', async (req, res) => {
     return res.status(400).json({ error: 'Verification is required.' });
   }
 
-  const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      secret: process.env.TURNSTILE_SECRET_KEY,
-      response: turnstileToken
-    })
-  });
+ const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: new URLSearchParams({
+    secret: process.env.TURNSTILE_SECRET_KEY,
+    response: turnstileToken
+  })
+});
 
-  const verifyData = await verifyResponse.json();
+const verifyData = await verifyResponse.json();
 
-  if (!verifyData.success) {
-    return res.status(403).json({ error: 'Verification failed.' });
-  }
+console.log('Turnstile verify data:', verifyData);
+console.log('Secret key exists:', !!process.env.TURNSTILE_SECRET_KEY);
+
+if (!verifyData.success) {
+  return res.status(403).json({ error: 'Verification failed.' });
+}
 
   const { error } = await resend.emails.send({
     from: 'Contact <noreply@cs5500.com>',
