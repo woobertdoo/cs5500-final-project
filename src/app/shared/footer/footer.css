@@ -9,3 +9,8 @@
   margin-inline: auto;
   padding-bottom: 0;
 }
+
+p {
+  background: var(--nav-bg);
+  color: #000000;
+}
