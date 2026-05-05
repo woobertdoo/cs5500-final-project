@@ -67,6 +67,20 @@
             <app-nav-dropdown [routes]="['contact']" [linkTexts]="['Contact' ]">
             </app-nav-dropdown>
           </div>
+          <div class="nav-item relative h-full flex items-center group">
+
+            <button
+              (click)="toggleTheme()"
+              class="relative flex h-6 w-18 items-center rounded-full px-1 transition duration-300"
+              [style.background]="isDark ? '#1a2f50' : '#EDF1FA'">
+
+              <span class="flex items-center justify-center h-8 w-8 rounded-full bg-white shadow-md transition-transform duration-300"
+                [style.transform]="isDark ? 'translateX(28px)' : 'translateX(0px)'">
+                {{ isDark ? '🌙' : '☀️' }}
+              </span>
+
+            </button>      
+          </div>
         </ul>
       </div>
 

@@ -3,11 +3,48 @@
 
 :root {
   --color-white: #fff;
+/* Dark mode */
+  --bg: #ffffff;
+  --text: #000000;
+  --btn-text: #ffffff;
+  --card-bg-grid: #EDF1FA;
+  --section-blue-bg: #f4f9ff;
+  --section-bl-gradient: linear-gradient(
+    to bottom,
+    #95CFFA,
+    #E7F5FE
+  );
+  --section-grn-gradient: linear-gradient(
+    to bottom,
+    rgba(244, 251, 245, 1),
+    rgba(252, 254, 251, 1)
+  );
+  --arrow-icn:#6EB3FA;
+/* ------------------ */
   --spacing: 0.25rem;
   --font-weight-medium: 500;
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --default-transition-duration: 0.15s;
   --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #ffffff;
+  --section-blue-bg: #1e293b;
+  --section-bl-gradient: linear-gradient(
+    to top,
+    #1a2f50,
+    #0f172a
+  );
+  --section-grn-gradient: linear-gradient(
+    to top,
+    #1a2f50,
+    #0f172a
+  );
+  --btn-text: #1a1a1a;
+  --card-bg-grid: #262e41;
+  --arrow-icn:#1d4ed8;
 }
 
 html,
@@ -28,9 +65,9 @@ router-outlet+* {
 }
 
 body {
-  color: #213547;
+  color: var(--text);/* #213547; */
   letter-spacing: 0.01em;
-  background-color: #fff;
+  background-color: var(--bg);/* #fff; */
   font-family: Inter, Noto Sans, Helvetica Neue, ui-sans-serif, system-ui;
   font-size: 16px;
 }
@@ -75,8 +112,8 @@ h2 {
   }
 
   body {
-    color: black !important;
-    background: white !important;
+    background: var(--bg);
+    color: var(--text);
     font-size: 12pt;
   }
 
