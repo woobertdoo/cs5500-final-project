@@ -48,7 +48,7 @@ export class ContactForm {
       }
 
       turnstile.render('#turnstile-container', {
-        sitekey: '0x4AAAAAADJJvb8207tWdGiR',
+        sitekey: '0x4AAAAAADJr-N-gsiLHF38a',
         size: 'normal',
         callback: (token: string) => {
           this.turnstileToken = token;
